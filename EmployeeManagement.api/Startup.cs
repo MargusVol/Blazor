@@ -1,4 +1,5 @@
 using EmployeeManagement.api.Models;
+using EmployeeManagement.Api.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,15 +28,20 @@ namespace EmployeeManagement.api
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+        
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
+
+            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+
             services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "EmployeeManagement.api", Version = "v1" });
-            });
+            //services.AddSwaggerGen(c =>
+            //{
+            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "EmployeeManagement.api", Version = "v1" });
+           // });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
