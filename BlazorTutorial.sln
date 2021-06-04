@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.Models",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.Web", "EmployeeManagement.Web\EmployeeManagement.Web.csproj", "{9BAECEEE-E82E-4DB5-AE62-DC49777AEAD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManagement.api", "EmployeeManagement.api\EmployeeManagement.api.csproj", "{F566FD02-A7E2-4181-B9AF-6B2CB1118EE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.api", "EmployeeManagement.api\EmployeeManagement.api.csproj", "{F566FD02-A7E2-4181-B9AF-6B2CB1118EE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
