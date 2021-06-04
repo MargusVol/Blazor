@@ -2,6 +2,7 @@
 using EmployeeManagement.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using static EmployeeManagement.api.Models.AddDbContext;
 
@@ -75,6 +76,23 @@ namespace EmployeeManagement.Api.Models
                 return result;
             }
             return null;
+        }
+
+        public async Task<IEnumerable<Employee>> Search(string name, Gender? gender)
+        {
+            IQueryable<Employee> query = appDbContext.Employees;
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                query = query.Where(e => e.FirstName.Contains(name)
+                || e.LastName.Contains(name));
+;            }
+            if (gender != null)
+            {
+                query = query.Where(e => e.Gender == gender);
+
+            }
+            return await query.ToListAsync();
         }
     }
 }
