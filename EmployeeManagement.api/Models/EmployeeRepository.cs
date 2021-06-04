@@ -30,7 +30,7 @@ namespace EmployeeManagement.Api.Models
         public async Task<Employee> GetEmployeeByEmail(string email)
         {
             return await appDbContext.Employees
-                .FirstOrDefaultAsync(e => e.Email == employeeId);
+                .FirstOrDefaultAsync(e => e.Email == email);
         }
         
 
