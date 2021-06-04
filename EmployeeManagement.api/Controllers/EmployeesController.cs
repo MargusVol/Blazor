@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using EmployeeManagement.Models;
 
 namespace EmployeeManagement.api.Controllers
 {
@@ -24,6 +25,26 @@ namespace EmployeeManagement.api.Controllers
             {
                 return Ok(await employeeRepository.GetEmployees());
 
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Error retrieving data from the database");
+            }
+        }
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult<Employee>> GetEmployee(int id)
+        {
+            try
+            {
+               var result = await employeeRepository.GetEmployee(id);
+
+                if(result == null)
+                {
+                    return NotFound();
+                }
+                return result;
             }
             catch (Exception)
             {
