@@ -25,6 +25,19 @@ namespace EmployeeManagement.Web.Pages
 
         }
 
+        protected int SelectedEmployeeCount { get; set; } = 0;
+        protected void EmployeeSelectionChanged(bool isSelected)
+        {
+            if (isSelected)
+            {
+                SelectedEmployeeCount++;
+            }
+            else
+            {
+                SelectedEmployeeCount--;
+            }
+        }
+
         
     }
 }
