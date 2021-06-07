@@ -5,16 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace EmployeeManagement.Models
 {
     public class Employee
     {
         public int EmployeeId { get; set; }
-        [Required]
+        [Required(ErrorMessage = "FirstName must be provided")]
         [MinLength(2)]
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
+        [EmailAddress]
         public string Email { get; set; }
         public DateTime DateOfBirth { get; set; }
         public Gender Gender { get; set; }
