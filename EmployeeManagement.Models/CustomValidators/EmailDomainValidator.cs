@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagement.Models.CustomValidators
 {
-    class EmailDomainValidator : ValidationAttribute
+    public class EmailDomainValidator : ValidationAttribute
     { 
 
         public string AllowedDomain { get; set; }
@@ -15,7 +15,7 @@ namespace EmployeeManagement.Models.CustomValidators
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             string[] strings = value.ToString().Split('@');
-            if (strings[1].ToUpper() == AllowedDomain.ToUpper())
+            if (strings.Length > 1 && strings[1].ToUpper() == AllowedDomain.ToUpper())
             {
                 return null;
             }
