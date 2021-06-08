@@ -22,12 +22,14 @@ namespace EmployeeManagement.Web.Models
         [EmailDomainValidator(AllowedDomain = "pragimtech.com",
             ErrorMessage = "Only PragimTech.com is allowed")]
         public string Email { get; set; }
+        [CompareProperty("Email", ErrorMessage = "Email and Confirm Email must match")]
         public string ConfirmEmail { get; set; }
         public DateTime DateOfBirth { get; set; }
         public Gender Gender { get; set; }
         public int DepartmentId { get; set; }
         public string PhotoPath { get; set; }
-        public Department Department { get; set; }
+        [ValidateComplexType]
+        public Department Department { get; set; } = new Department();
 
     }
 }
