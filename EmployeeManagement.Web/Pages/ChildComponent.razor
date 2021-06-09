@@ -1,4 +1,20 @@
-﻿<input id="firstName" placeholder="Default Placeholder" @attributes="InputAttributes" value="@Value" />
+﻿<h1 style="@ElementStyle">-Child Comopent</h1>
+
+<GrandChildComponent></GrandChildComponent>
+
+@code {
+    [CascadingParameter]
+    public string ElementStyle { get; set; }
+}
+
+
+
+
+
+
+
+
+@*<input id="firstName" placeholder="Default Placeholder" @attributes="InputAttributes" value="@Value" />
 
 @code {
     [Parameter(CaptureUnmatchedValues = true)]
@@ -7,4 +23,4 @@
 
     [Parameter]
     public string Value { get; set; } = "Child Value";
-}
+}*@
