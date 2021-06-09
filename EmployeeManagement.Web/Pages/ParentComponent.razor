@@ -2,13 +2,16 @@
 
 <h1 style="@Style">Parent Component Text</h1>
 
-<CascadingValue Value="@Style">
+<CascadingValue Value="@Style" Name="ColorStyle">
+    <CascadingValue Value="@BorderStyle" Name="BorderStyle">
 
-<ChildComponent></ChildComponent>
+        <ChildComponent></ChildComponent>
+    </CascadingValue>
 </CascadingValue>
 
 @code {
     public string Style { get; set; } = "color:red";
+    public string BorderStyle { get; set; } = "border:1px solid red";
 }
 
 
